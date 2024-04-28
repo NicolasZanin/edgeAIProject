@@ -1,7 +1,7 @@
 //#include <LibLacuna.h>
 #include <I2S.h>
 
-#include "gsc_model_floating.h"
+#include "gsc_model_fixed.h"
 
 #define I2S_SAMPLE_RATE 16000  // [16000, 48000] supported by the microphone
 #define I2S_BITS_PER_SAMPLE 32 // Data is sent in 32-bit packets over I2S but only 18 bits are used by the microphone, remaining least significant bits are set to 0
@@ -92,7 +92,7 @@ void loop() {
       inputs[i][0] -= dc_offset;
 
       // Amplify
-      inputs[i][0] = ((int) inputs[i][0]) << 2; // To verify this line
+      inputs[i][0] = (int) inputs[i][0] << 2;
     }
 
     // Send signed 16-bit PCM little endian 1 channel
