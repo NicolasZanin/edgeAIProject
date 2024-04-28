@@ -1,4 +1,5 @@
 data/
-gsc*
-*.h
+gsc_output*
+*.exe
+*.csv
 *.h5
